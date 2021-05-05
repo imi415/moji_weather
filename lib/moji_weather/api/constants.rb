@@ -3,7 +3,10 @@ module MojiWeather
         module ApiType
             CONDITION = 'condition'
             FORECAST_24HRS = 'forecast24hours'
+            FORECAST_15DAYS = 'forecast15days'
             AQI = 'aqi'
+            LIMIT = 'limit'
+            LIFE_INDEX = 'index'
         end
 
         module Constants
@@ -19,6 +22,18 @@ module MojiWeather
                 MojiWeather::Api::ApiType::AQI => {
                     city_id: '8b36edf8e3444047812be3a59d27bab9',
                     location: '6e9a127c311094245fc1b2aa6d0a54fd'
+                },
+                MojiWeather::Api::ApiType::LIMIT => {
+                    city_id: '27200005b3475f8b0e26428f9bfb13e9',
+                    location: 'c712899b393c7b262dd7984f6eb52657'
+                },
+                MojiWeather::Api::ApiType::LIFE_INDEX => {
+                    city_id: '5944a84ec4a071359cc4f6928b797f91',
+                    location: '42b0c7e2e8d00d6e80d92797fe5360fd'
+                },
+                MojiWeather::Api::ApiType::FORECAST_15DAYS => {
+                    city_id: 'f9f212e1996e79e0e602b08ea297ffb0',
+                    location: '7538f7246218bdbf795b329ab09cc524'
                 }
             }
         end
