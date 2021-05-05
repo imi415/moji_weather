@@ -1,3 +1,5 @@
+require 'moji_weather/api/constants'
+
 module MojiWeather
     module Api
         class RestClient
@@ -9,6 +11,18 @@ module MojiWeather
 
                 @cityid_base   = "http://aliv18.data.moji.com/whapi/json/alicityweather"
                 @location_base = "http://aliv8.data.moji.com/whapi/json/aliweather"
+            end
+
+            def query(api_type, options = {})
+                if !options[:city_id].nil? then
+                    response = cityid_request(api_type, city_id: options[:city_id], token: MojiWeather::Api::Constants::API_TOKENS[api_type][:city_id])
+                elsif !options[:location].nil? then
+                    response = location_request(api_type, location: options[:location], token: MojiWeather::Api::Constants::API_TOKENS[api_type][:location])
+                else
+                    raise MojiWeather::ClientError.new("Invalid request: either city_id or location needs to be set.")
+                end
+    
+                response
             end
 
             private

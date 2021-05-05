@@ -1,13 +1,8 @@
-require 'moji_weather/api/alert'
-require 'moji_weather/api/condition'
-require 'moji_weather/api/aqi_forecast_5days'
-require 'moji_weather/api/aqi'
-require 'moji_weather/api/forecast_15days'
-require 'moji_weather/api/forecast_24hrs'
-require 'moji_weather/api/limit'
-require 'moji_weather/api/live_index'
+require 'moji_weather/api/rest_client'
 
 module MojiWeather
     module Api
+        class Client < MojiWeather::Api::RestClient
+        end
     end
 end
