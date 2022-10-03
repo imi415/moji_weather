@@ -9,8 +9,17 @@ module MojiWeather
                 end
                 @app_code = options[:app_code]
 
-                @cityid_base   = "http://aliv18.data.moji.com/whapi/json/alicityweather"
-                @location_base = "http://aliv8.data.moji.com/whapi/json/aliweather"
+                if options[:cityid_base].nil?
+                    @cityid_base   = "http://aliv18.data.moji.com/whapi/json/alicityweather"
+                else
+                    @cityid_base = options[:cityid_base]
+                end
+
+                if options[:location_base].nil?
+                    @location_base = "http://aliv8.data.moji.com/whapi/json/aliweather"
+                else
+                    @location_base = options[:location_base]
+                end
             end
 
             def query(api_type, options = {})
@@ -70,3 +79,4 @@ module MojiWeather
         end
     end
 end
+
